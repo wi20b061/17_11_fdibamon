@@ -3,25 +3,27 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args){
-        //Create List of fdibamons
-        List<Fdibamon> fdibamons = createFdibamonList();
-
         //Create User Interface
         UserIO userIO = new UserIO();
-        List<Fdibamon> fdibamonSelection = userIO.fdibamonSeclection(fdibamons);
 
-        System.out.printf("Creating arena...:%nFighter N1: %s%nFighter N2: %s",
-                fdibamonSelection.get(0).getName(),
-                fdibamonSelection.get(1).getName());
+        //Create List of fdibamons to choose from
+        List<Fdibamon> fdibamons = createFdibamonList();
+
+        //User-Selection-Process for the 2 Player-Fdibamons
+        List<Fdibamon> fdibamonSelection = userIO.fdibamonSeclection(fdibamons);
+        //Create FdibamonFight Arena
+        FdibamonFight fdibamonFight = new FdibamonFight(fdibamonSelection);
+        //let the fight begin!
+        fdibamonFight.fight();
     }
 
     private static List<Fdibamon> createFdibamonList() {
         List<Fdibamon> fdibamons = new ArrayList<>();
-        fdibamons.add(new Fdibamon("Torud", 50, 20));
-        fdibamons.add(new Fdibamon("Morzith", 40, 50));
-        fdibamons.add(new Fdibamon("Unoth", 60, 30));
-        fdibamons.add(new Fdibamon("Gandalf", 50, 40));
-        fdibamons.add(new Fdibamon("Mordekeiser", 70, 70));
+        fdibamons.add(new Fdibamon("Torud", 450, 20));
+        fdibamons.add(new Fdibamon("Morzith", 350, 35));
+        fdibamons.add(new Fdibamon("Unoth", 150, 45));
+        fdibamons.add(new Fdibamon("Gandalf", 250, 40));
+        fdibamons.add(new Fdibamon("Mordekeiser", 350, 25));
         return fdibamons;
     }
 }

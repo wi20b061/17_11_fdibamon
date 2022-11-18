@@ -1,4 +1,3 @@
-import java.security.InvalidParameterException;
 
 public class Fdibamon {
     private String name;
@@ -24,35 +23,24 @@ public class Fdibamon {
     }
 
     private void setName(String name) {
-        validateName(name);
+        if(name == null || name.trim().isEmpty()) {
+           return;
+        }
         this.name = name;
     }
 
-    private void setHitPoints(int hitPoints) {
-        validateHitPoints(hitPoints);
-        this.hitPoints = hitPoints;
-    }
-
-    private void setAttackPower(int attackPower) {
-        validateAttackPower(attackPower);
-        this.attackPower = attackPower;
-    }
-
-    private void validateName(String name) {
-        if(name == null || name.trim().isEmpty()) {
-            throw new InvalidParameterException();
+    public void setHitPoints(int hitPoints) {
+        if(hitPoints >= 0) {
+            this.hitPoints = hitPoints;
+        }else{
+            this.hitPoints = 0;
         }
     }
 
-    private void validateHitPoints(int hitPoints) {
-        if(hitPoints < 0) {
-            throw new InvalidParameterException();
+    public void setAttackPower(int attackPower) {
+        if(attackPower > 0) {
+            this.attackPower = attackPower;
         }
     }
 
-    private void validateAttackPower(int attackPower) {
-        if(attackPower < 0) {
-            throw new InvalidParameterException();
-        }
-    }
 }
