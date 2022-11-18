@@ -25,7 +25,6 @@ public class UserIO {
                 }
             } catch (IllegalArgumentException ex) {
                 System.out.printf("%nInvalid input, try again.%n%n");
-                continue;
             }catch (IOException io){
                 io.printStackTrace();
             }
@@ -51,26 +50,11 @@ public class UserIO {
     private void printCurrentFdibamonList(List<Fdibamon> fdibamons) {
         int counter = 1;
         for (Fdibamon fdibamon : fdibamons) {
-            /*System.out.printf("ID: %d. | Name: %15s | HP: %7d | Attack Points: %7d%n",
-                    counter++,
-                    fdibamon.getName(),
-                    fdibamon.getHitPoints(),
-                    fdibamon.getAttackPower());
-             */
             System.out.printf("ID: %d. | Name: ", counter++);
             printFdibamon(fdibamon);
         }
     }
     private void printSelectedFdibamons(List<Fdibamon> fdibamonSelection){
-        /*System.out.printf("Your Selected Fighters:%nFighter 1: %15s | HP %7d | Attack Points %7d%n" +
-                        "Fighter 2: %15s | HP %7d | Attack Points %7d%n%n",
-                fdibamonSelection.get(0).getName(),
-                fdibamonSelection.get(0).getHitPoints(),
-                fdibamonSelection.get(0).getAttackPower(),
-                fdibamonSelection.get(1).getName(),
-                fdibamonSelection.get(1).getHitPoints(),
-                fdibamonSelection.get(1).getAttackPower());
-        */
         System.out.printf("Your Selected Fighters:%nFighter 1: ");
         printFdibamon(fdibamonSelection.get(0));
         System.out.print("Fighter 2: ");
