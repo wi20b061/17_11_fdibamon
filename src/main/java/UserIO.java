@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserIO {
+    public static List<String> consoleOut = new ArrayList<>();
 
-    public List<Fdibamon> fdibamonSeclection(List<Fdibamon> fdibamons){
+    public List<Fdibamon> fdibamonSeclection(List<Fdibamon> fdibamons) {
         List<Fdibamon> fdibamonSelection = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
         int input;
         int selectedFdibamons = 0;
         int upperBound;
 
         while (selectedFdibamons < 2) {
-            input = 0;
             printCurrentFdibamonList(fdibamons);
             upperBound = fdibamons.size();
             System.out.printf("%nEnter your Fdibamon #%d: ", selectedFdibamons + 1);
@@ -23,19 +24,21 @@ public class UserIO {
                 if (input <= 0 || input > upperBound) {
                     throw new IllegalArgumentException();
                 }
+
+                if (selectedFdibamons == 0) {
+                    fdibamonSelection.add(getFdibamonFromListAndPrintIt(fdibamons, input));
+                    fdibamons.remove(input - 1);
+                    ++selectedFdibamons;
+                    continue;
+                }
+                fdibamonSelection.add(getFdibamonFromListAndPrintIt(fdibamons, input));
+                ++selectedFdibamons;
             } catch (IllegalArgumentException ex) {
                 System.out.printf("%nInvalid input, try again.%n%n");
-            }catch (IOException io){
+            } catch (IOException io) {
                 io.printStackTrace();
             }
-            if (selectedFdibamons == 0 && input != 0) {
-                fdibamonSelection.add(getFdibamonFromListAndPrintIt(fdibamons, input));
-                fdibamons.remove(input - 1);
-                ++selectedFdibamons;
-                continue;
-            }
-            fdibamonSelection.add(getFdibamonFromListAndPrintIt(fdibamons, input));
-            ++selectedFdibamons;
+
         }
         printSelectedFdibamons(fdibamonSelection);
         return fdibamonSelection;
@@ -54,43 +57,53 @@ public class UserIO {
             printFdibamon(fdibamon);
         }
     }
-    private void printSelectedFdibamons(List<Fdibamon> fdibamonSelection){
+
+    private void printSelectedFdibamons(List<Fdibamon> fdibamonSelection) {
         System.out.printf("Your Selected Fighters:%nFighter 1: ");
         printFdibamon(fdibamonSelection.get(0));
+        consoleOut.add(String.format("Your Selected Fighters:%nFighter 1: %s", printFdibamon(fdibamonSelection.get(0))));
+
         System.out.print("Fighter 2: ");
         printFdibamon(fdibamonSelection.get(1));
+        consoleOut.add(String.format("Fighter 2: %s", printFdibamon(fdibamonSelection.get(1))));
     }
-    private void printFdibamon(Fdibamon fdibamon){
-        System.out.printf("%15s | HP %7d | Attack Points %7d%n",
+
+    private String printFdibamon(Fdibamon fdibamon) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%15s | HP %7d | Attack Points %7d%n",
                 fdibamon.getName(),
                 fdibamon.getHitPoints(),
-                fdibamon.getAttackPower());
+                fdibamon.getAttackPower()));
+        System.out.print(sb);
+        return sb.toString();
     }
 
     public void printFightRound(int round, Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
         System.out.printf("Round %d:%n", round);
-        printFdibamon(firstFdibamon);
-        printFdibamon(secondFdibamon);
+        consoleOut.add(String.format("Round %d:%n", round));
+        consoleOut.add(printFdibamon(firstFdibamon));
+        consoleOut.add(printFdibamon(secondFdibamon));
     }
 
     public void printEndOfGame() {
         System.out.printf("%n -------------- The Game has Ended! -------------- %n");
+        consoleOut.add(String.format("%n -------------- The Game has Ended! -------------- %n"));
     }
 
     public void printDraw(Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
         System.out.printf("%nIt's a Draw! Both Fighters are at 0 HP%n");
-        printFdibamon(firstFdibamon);
-        printFdibamon(secondFdibamon);
+        consoleOut.add("%nIt's a Draw! Both Fighters are at 0 HP%n");
+        consoleOut.add(printFdibamon(firstFdibamon));
+        consoleOut.add(printFdibamon(secondFdibamon));
     }
-
 
     public void printWinner(int winnerNumber, Fdibamon winnerFdibamon, Fdibamon loserFdibamon) {
         System.out.printf("%nThe Winner is Fighter %d (%s)!%n",
                 winnerNumber, winnerFdibamon.getName());
         System.out.print("Winner: ");
-        printFdibamon(winnerFdibamon);
+        consoleOut.add(String.format("Winner: %s", printFdibamon(winnerFdibamon)));
         System.out.print("Loser:  ");
-        printFdibamon(loserFdibamon);
-
+        consoleOut.add(String.format("Loser: %s", printFdibamon(loserFdibamon)));
+        System.out.println();
     }
 }

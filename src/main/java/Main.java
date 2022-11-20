@@ -1,8 +1,11 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args){
+        Logger logger = new Logger();
+
         //Create User Interface
         UserIO userIO = new UserIO();
 
@@ -15,6 +18,12 @@ public class Main {
         FdibamonFight fdibamonFight = new FdibamonFight(fdibamonSelection);
         //let the fight begin!
         fdibamonFight.fight();
+
+        try {
+            logger.createReport(FdibamonFight.firstFdibamon, FdibamonFight.secondFdibamon, UserIO.consoleOut);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static List<Fdibamon> createFdibamonList() {
