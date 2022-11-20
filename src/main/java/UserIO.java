@@ -52,7 +52,7 @@ public class UserIO {
         int counter = 1;
         for (Fdibamon fdibamon : fdibamons) {
             System.out.printf("ID: %d. | Name: ", counter++);
-            printFdibamon(fdibamon);
+            System.out.print(printFdibamon(fdibamon));
         }
     }
 
@@ -62,13 +62,10 @@ public class UserIO {
     }
 
     private String printFdibamon(Fdibamon fdibamon) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%15s | HP %7d | Attack Points %7d%n",
+        return String.format("%15s | HP %7d | Attack Points %7d%n",
                 fdibamon.getName(),
                 fdibamon.getHitPoints(),
-                fdibamon.getAttackPower()));
-        System.out.print(sb);
-        return sb.toString();
+                fdibamon.getAttackPower());
     }
 
     public void printFightRound(int round, Fdibamon firstFdibamon, Fdibamon secondFdibamon) {

@@ -14,14 +14,13 @@ public class Logger {
 
     public void createReport(Fdibamon firstFdibamon, Fdibamon secondFdibamon) throws IOException {
         String fileName = generateFileName(firstFdibamon.getName(), secondFdibamon.getName());
-        path = String.format(path + fileName + ".txt");
+        path = path + fileName + ".txt";
         StringBuilder out = new StringBuilder();
 
         for (String line : toOutput) {
             out.append(line);
         }
-
-        Files.writeString(Path.of(path), String.format("%s%n", out));
+        Files.writeString(Path.of(path), String.format("%s", out));
     }
 
     public static void log(String message) {
