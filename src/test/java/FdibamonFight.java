@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 public class FdibamonFight {
 
-    private FdibamonFight fdibamonFight = new FdibamonFight();
+    private final FdibamonFight fdibamonFight = new FdibamonFight();
 
     @Test
     public void fightBetweenFdibamonsWithSameHpShouldResultInATieTest() {
