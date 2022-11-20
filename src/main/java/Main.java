@@ -20,7 +20,7 @@ public class Main {
         fdibamonFight.fight();
 
         try {
-            logger.createReport(FdibamonFight.firstFdibamon, FdibamonFight.secondFdibamon, UserIO.consoleOut);
+            logger.createReport(FdibamonFight.firstFdibamon, FdibamonFight.secondFdibamon);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

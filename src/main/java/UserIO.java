@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserIO {
-    public static List<String> consoleOut = new ArrayList<>();
-
     public List<Fdibamon> fdibamonSeclection(List<Fdibamon> fdibamons) {
         List<Fdibamon> fdibamonSelection = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -59,13 +57,8 @@ public class UserIO {
     }
 
     private void printSelectedFdibamons(List<Fdibamon> fdibamonSelection) {
-        System.out.printf("Your Selected Fighters:%nFighter 1: ");
-        printFdibamon(fdibamonSelection.get(0));
-        consoleOut.add(String.format("Your Selected Fighters:%nFighter 1: %s", printFdibamon(fdibamonSelection.get(0))));
-
-        System.out.print("Fighter 2: ");
-        printFdibamon(fdibamonSelection.get(1));
-        consoleOut.add(String.format("Fighter 2: %s", printFdibamon(fdibamonSelection.get(1))));
+        Logger.log(String.format("Your Selected Fighters:%nFighter 1: %s", printFdibamon(fdibamonSelection.get(0))));
+        Logger.log(String.format("Fighter 2: %s", printFdibamon(fdibamonSelection.get(1))));
     }
 
     private String printFdibamon(Fdibamon fdibamon) {
@@ -79,31 +72,25 @@ public class UserIO {
     }
 
     public void printFightRound(int round, Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
-        System.out.printf("Round %d:%n", round);
-        consoleOut.add(String.format("Round %d:%n", round));
-        consoleOut.add(printFdibamon(firstFdibamon));
-        consoleOut.add(printFdibamon(secondFdibamon));
+        Logger.log(String.format("Round %d:%n%s%s",
+                round,
+                printFdibamon(firstFdibamon),
+                printFdibamon(secondFdibamon)));
     }
 
     public void printEndOfGame() {
-        System.out.printf("%n -------------- The Game has Ended! -------------- %n");
-        consoleOut.add(String.format("%n -------------- The Game has Ended! -------------- %n"));
+        Logger.log(String.format("%n -------------- The Game has Ended! -------------- %n"));
     }
 
     public void printDraw(Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
-        System.out.printf("%nIt's a Draw! Both Fighters are at 0 HP%n");
-        consoleOut.add("%nIt's a Draw! Both Fighters are at 0 HP%n");
-        consoleOut.add(printFdibamon(firstFdibamon));
-        consoleOut.add(printFdibamon(secondFdibamon));
+        Logger.log(String.format("%nIt's a Draw! Both Fighters are at 0 HP%n%s%s",
+                printFdibamon(firstFdibamon),
+                printFdibamon(secondFdibamon)));
     }
 
     public void printWinner(int winnerNumber, Fdibamon winnerFdibamon, Fdibamon loserFdibamon) {
-        System.out.printf("%nThe Winner is Fighter %d (%s)!%n",
-                winnerNumber, winnerFdibamon.getName());
-        System.out.print("Winner: ");
-        consoleOut.add(String.format("Winner: %s", printFdibamon(winnerFdibamon)));
-        System.out.print("Loser:  ");
-        consoleOut.add(String.format("Loser: %s", printFdibamon(loserFdibamon)));
-        System.out.println();
+        Logger.log(String.format(
+                "%nThe Winner is Fighter %d (%s)!%nWinner: %s%nLoser: %s",
+                winnerNumber, winnerFdibamon.getName(), printFdibamon(winnerFdibamon), printFdibamon(loserFdibamon)));
     }
 }

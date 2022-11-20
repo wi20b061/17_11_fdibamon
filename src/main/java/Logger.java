@@ -1,29 +1,34 @@
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
-
-import static java.nio.file.Files.write;
-import static java.nio.file.Files.writeString;
 
 public class Logger {
 
     private static String path = "src/main/resources/results/";
+    private static List<String> toOutput = new ArrayList<>();
 
 
-    public void createReport(Fdibamon firstFdibamon, Fdibamon secondFdibamon, List<String> output) throws IOException {
+    public void createReport(Fdibamon firstFdibamon, Fdibamon secondFdibamon) throws IOException {
         String fileName = generateFileName(firstFdibamon.getName(), secondFdibamon.getName());
         path = String.format(path + fileName + ".txt");
-        for (String line : output) {
-            Files.writeString(Path.of(path), String.format("%s%n", line));
+        StringBuilder out = new StringBuilder();
+
+        for (String line : toOutput) {
+            out.append(line);
         }
+
+        Files.writeString(Path.of(path), String.format("%s%n", out));
     }
 
-    public static void log(String message, Path path) throws IOException {
-
+    public static void log(String message) {
+        System.out.println(message);
+        toOutput.add(message);
     }
 
     private static String generateFileName(String firstFdibamonName, String secondFdibamonName) {
