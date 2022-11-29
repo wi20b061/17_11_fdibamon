@@ -1,0 +1,83 @@
+Your Selected Fighters:
+Fighter 1:           Torud | HP     450 | Attack Points      20 | Special Power     JEDIHEALING
+Fighter 2:         Gandalf | HP     250 | Attack Points      40 | Special Power     JEDIHEALING
+Round 1:
+          Torud | HP     410 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     230 | Attack Points      40 | Special Power     JEDIHEALING
+Round 2:
+          Torud | HP     370 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     210 | Attack Points      40 | Special Power     JEDIHEALING
+Round 3:
+          Torud | HP     330 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     190 | Attack Points      40 | Special Power     JEDIHEALING
+Round 4:
+          Torud | HP     290 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     170 | Attack Points      40 | Special Power     JEDIHEALING
+Round 5:
+          Torud | HP     350 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     290 | Attack Points      40 | Special Power     JEDIHEALING
+
+		=====SPECIAL POWERS HAVE BEEN USED=====
+		Torud used special power: JEDIHEALING
+		Gandalf used special power: JEDIHEALING
+		=======================================
+Round 6:
+          Torud | HP     310 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     270 | Attack Points      40 | Special Power     JEDIHEALING
+Round 7:
+          Torud | HP     270 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     250 | Attack Points      40 | Special Power     JEDIHEALING
+Round 8:
+          Torud | HP     230 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     230 | Attack Points      40 | Special Power     JEDIHEALING
+Round 9:
+          Torud | HP     190 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     210 | Attack Points      40 | Special Power     JEDIHEALING
+Round 10:
+          Torud | HP     250 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     330 | Attack Points      40 | Special Power     JEDIHEALING
+
+		=====SPECIAL POWERS HAVE BEEN USED=====
+		Torud used special power: JEDIHEALING
+		Gandalf used special power: JEDIHEALING
+		=======================================
+Round 11:
+          Torud | HP     210 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     310 | Attack Points      40 | Special Power     JEDIHEALING
+Round 12:
+          Torud | HP     170 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     290 | Attack Points      40 | Special Power     JEDIHEALING
+Round 13:
+          Torud | HP     130 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     270 | Attack Points      40 | Special Power     JEDIHEALING
+Round 14:
+          Torud | HP      90 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     250 | Attack Points      40 | Special Power     JEDIHEALING
+Round 15:
+          Torud | HP     150 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     370 | Attack Points      40 | Special Power     JEDIHEALING
+
+		=====SPECIAL POWERS HAVE BEEN USED=====
+		Torud used special power: JEDIHEALING
+		Gandalf used special power: JEDIHEALING
+		=======================================
+Round 16:
+          Torud | HP     110 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     350 | Attack Points      40 | Special Power     JEDIHEALING
+Round 17:
+          Torud | HP      70 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     330 | Attack Points      40 | Special Power     JEDIHEALING
+Round 18:
+          Torud | HP      30 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     310 | Attack Points      40 | Special Power     JEDIHEALING
+Round 19:
+          Torud | HP       0 | Attack Points      20 | Special Power     JEDIHEALING
+        Gandalf | HP     290 | Attack Points      40 | Special Power     JEDIHEALING
+
+ -------------- The Game has Ended! -------------- 
+
+Torud used their special power 3 time(s)
+Gandalf used their special power 3 time(s)
+The Winner is Fighter 2 (Gandalf)!
+Winner:        Gandalf | HP     290 | Attack Points      40 | Special Power     JEDIHEALING
+Loser:           Torud | HP       0 | Attack Points      20 | Special Power     JEDIHEALING

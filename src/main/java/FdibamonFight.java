@@ -18,7 +18,7 @@ public class FdibamonFight {
     public void fight() {
         int round = 0;
         int winner = 0;
-        int specialPowersUsageCounter = 1;
+        int specialPowersUsageCounter = 0;
         //fight round with changes of fighters HP
         while (winner == 0) {
             round++;
@@ -35,8 +35,9 @@ public class FdibamonFight {
             //check if there is a winner
             winner = checkwinner();
         }
-
         userIO.printEndOfGame();
+        userIO.printSpecialPowersUsage(firstFdibamon, secondFdibamon, specialPowersUsageCounter);
+
         if (winner == 3) {
             userIO.printDraw(firstFdibamon, secondFdibamon);
         } else if (winner == 1) {

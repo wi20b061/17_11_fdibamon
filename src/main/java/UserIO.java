@@ -62,10 +62,11 @@ public class UserIO {
     }
 
     private String printFdibamon(Fdibamon fdibamon) {
-        return String.format("%15s | HP %7d | Attack Points %7d%n",
+        return String.format("%15s | HP %7d | Attack Points %7d | Special Power %15s%n",
                 fdibamon.getName(),
                 fdibamon.getHitPoints(),
-                fdibamon.getAttackPower());
+                fdibamon.getAttackPower(),
+                fdibamon.getSpecialPower());
     }
 
     public void printFightRound(int round, Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
@@ -106,5 +107,13 @@ public class UserIO {
                         + "Winner:%s"
                         + "Loser: %s",
                 winnerNumber, winnerFdibamon.getName(), printFdibamon(winnerFdibamon), printFdibamon(loserFdibamon)));
+    }
+
+    public void printSpecialPowersUsage(Fdibamon firstFdibamon, Fdibamon secondFdibamon, int specialPowersUsageCounter){
+        Logger.log(String.format(
+                "%n%s used their special power %d time(s)%n" +
+                        "%s used their special power %d time(s)%n",
+                firstFdibamon.getName(), specialPowersUsageCounter,
+                secondFdibamon.getName(), specialPowersUsageCounter));
     }
 }
