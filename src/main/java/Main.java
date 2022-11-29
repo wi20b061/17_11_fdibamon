@@ -28,11 +28,11 @@ public class Main {
 
     private static List<Fdibamon> createFdibamonList() {
         List<Fdibamon> fdibamons = new ArrayList<>();
-        fdibamons.add(new Fdibamon("Torud", 450, 20));
-        fdibamons.add(new Fdibamon("Morzith", 350, 35));
-        fdibamons.add(new Fdibamon("Unoth", 150, 45));
-        fdibamons.add(new Fdibamon("Gandalf", 250, 40));
-        fdibamons.add(new Fdibamon("Mordekeiser", 350, 25));
+        fdibamons.add(new Fdibamon("Torud", 450, 20, "JEDIHEALING"));
+        fdibamons.add(new Fdibamon("Morzith", 350, 35, "ATTACKPOWER"));
+        fdibamons.add(new Fdibamon("Unoth", 150, 45, "JEDIHEALING"));
+        fdibamons.add(new Fdibamon("Gandalf", 250, 40, "JEDIHEALING"));
+        fdibamons.add(new Fdibamon("Mordekeiser", 350, 25, "ATTACKPOWER"));
         return fdibamons;
     }
 }

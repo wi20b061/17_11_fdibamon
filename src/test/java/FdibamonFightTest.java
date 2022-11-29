@@ -1,19 +1,16 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class FdibamonFight {
+public class FdibamonFightTest {
 
-    private final FdibamonFight fdibamonFight = new FdibamonFight();
 
     @Test
     public void fightBetweenFdibamonsWithSameHpShouldResultInATieTest() {
         Fdibamon firstFdibamon = new Fdibamon("Rich", 20, 10);
         Fdibamon secondFdibamon = new Fdibamon("Bitch", 20, 10);
-        /*fdibamonFight.fight(firstFdibamon, secondFdibamon);
-        fight(firstFdibamon, secondFdibamon);*/
+
 
         assertEquals(firstFdibamon.getHitPoints(), secondFdibamon.getHitPoints());
     }

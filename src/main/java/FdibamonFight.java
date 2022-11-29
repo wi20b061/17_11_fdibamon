@@ -18,15 +18,24 @@ public class FdibamonFight {
     public void fight() {
         int round = 0;
         int winner = 0;
+        int specialPowersUsageCounter = 1;
         //fight round with changes of fighters HP
         while (winner == 0) {
             round++;
-            fightRound();
-            //print current fight round
-            userIO.printFightRound(round, firstFdibamon, secondFdibamon);
+            if(round % 5 == 0) {
+                fightRoundWithSpecialPowers();
+                userIO.printFightRoundWithSpecialPowersUsed(round, firstFdibamon, secondFdibamon);
+                specialPowersUsageCounter++;
+            } else {
+                fightRound();
+                //print current fight round
+                userIO.printFightRound(round, firstFdibamon, secondFdibamon);
+            }
+
             //check if there is a winner
             winner = checkwinner();
         }
+
         userIO.printEndOfGame();
         if (winner == 3) {
             userIO.printDraw(firstFdibamon, secondFdibamon);
@@ -52,6 +61,29 @@ public class FdibamonFight {
         }
         //both fighters have HP > 0 -> fight continuous
         return 0;
+    }
+
+    private void fightRoundWithSpecialPowers() {
+        Fdibamon attacker = firstFdibamon;
+        Fdibamon defender = secondFdibamon;
+
+        for (int i = 0; i < 2; i++) {
+            switch (attacker.getSpecialPower()) {
+                case "JEDIHEALING":
+                    attacker.setHitPoints(attacker.getHitPoints() + (3 * attacker.getAttackPower()));
+                    break;
+                case "ATTACKPOWER":
+                    defender.setHitPoints(defender.getHitPoints() - (3 * attacker.getAttackPower()));
+                    break;
+                default:
+                    Logger.log("ERROR! NONEXISTENT SPECIAL POWER.");
+                    break;
+            }
+
+            attacker = secondFdibamon;
+            defender = firstFdibamon;
+        }
+
     }
 
     //both fdibamons attack the other one

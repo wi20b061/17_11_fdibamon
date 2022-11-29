@@ -75,6 +75,21 @@ public class UserIO {
                 printFdibamon(secondFdibamon)));
     }
 
+    public void printFightRoundWithSpecialPowersUsed(int round, Fdibamon firstFdibamon, Fdibamon secondFdibamon) {
+
+        Logger.log(String.format(
+                "Round %d:%n"
+                        + "%s%s"
+                        + "%n\t\t=====SPECIAL POWERS HAVE BEEN USED=====%n"
+                        + "\t\t%s used special power: %s%n"
+                        + "\t\t%s used special power: %s%n"
+                        + "\t\t=======================================%n",
+                round, printFdibamon(firstFdibamon), printFdibamon(secondFdibamon),
+                firstFdibamon.getName(), firstFdibamon.getSpecialPower(),
+                secondFdibamon.getName(), secondFdibamon.getSpecialPower())
+        );
+    }
+
     public void printEndOfGame() {
         Logger.log(String.format("%n -------------- The Game has Ended! -------------- %n"));
     }
@@ -87,7 +102,9 @@ public class UserIO {
 
     public void printWinner(int winnerNumber, Fdibamon winnerFdibamon, Fdibamon loserFdibamon) {
         Logger.log(String.format(
-                "%nThe Winner is Fighter %d (%s)!%nWinner: %s%nLoser: %s",
+                "The Winner is Fighter %d (%s)!%n"
+                        + "Winner:%s"
+                        + "Loser: %s",
                 winnerNumber, winnerFdibamon.getName(), printFdibamon(winnerFdibamon), printFdibamon(loserFdibamon)));
     }
 }

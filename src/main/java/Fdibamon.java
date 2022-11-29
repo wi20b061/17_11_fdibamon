@@ -2,11 +2,19 @@ public class Fdibamon {
     private String name;
     private int hitPoints;
     private int attackPower;
+    private String specialPower;
 
     public Fdibamon(String name, int hitPoints, int attackPower) {
         this.setName(name);
         this.setHitPoints(hitPoints);
         this.setAttackPower(attackPower);
+    }
+
+    public Fdibamon(String name, int hitPoints, int attackPower, String specialPower) {
+        this.setName(name);
+        this.setHitPoints(hitPoints);
+        this.setAttackPower(attackPower);
+        this.setSpecialPower(specialPower);
     }
 
     public String getName() {
@@ -19,6 +27,10 @@ public class Fdibamon {
 
     public int getAttackPower() {
         return attackPower;
+    }
+
+    public String getSpecialPower() {
+        return specialPower;
     }
 
     private void setName(String name) {
@@ -42,6 +54,12 @@ public class Fdibamon {
         }
     }
 
+    public void setSpecialPower(String specialPower) {
+        if(specialPower.equals("JEDIHEALING") || specialPower.equals("ATTACKPOWER")) {
+            this.specialPower = specialPower;
+        }
+    }
+
     @Override
     public String toString() {
         return "Fdibamon{" +
@@ -50,5 +68,4 @@ public class Fdibamon {
                 ", attackPower=" + attackPower +
                 '}';
     }
-
 }
