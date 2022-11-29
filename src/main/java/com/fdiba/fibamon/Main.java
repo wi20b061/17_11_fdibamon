@@ -1,3 +1,5 @@
+package com.fdiba.fibamon;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class Main {
 
         //User-Selection-Process for the 2 Player-Fdibamons
         List<Fdibamon> fdibamonSelection = userIO.fdibamonSeclection(fdibamons);
-        //Create FdibamonFight Arena
+        //Create com.fdiba.fibamon.FdibamonFight Arena
         FdibamonFight fdibamonFight = new FdibamonFight(fdibamonSelection);
         //let the fight begin!
         fdibamonFight.fight();

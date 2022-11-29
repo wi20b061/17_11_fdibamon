@@ -1,3 +1,4 @@
+import com.fdiba.fibamon.Fdibamon;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

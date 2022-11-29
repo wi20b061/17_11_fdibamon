@@ -1,8 +1,14 @@
+package com.fdiba.fibamon;
+
+import com.fdiba.fibamon.attackpowers.Attackpower;
+import com.fdiba.fibamon.attackpowers.Jedihealing;
+
 public class Fdibamon {
     private String name;
     private int hitPoints;
     private int attackPower;
-    private String specialPower;
+    //private String specialPower;
+    private SpecialPowerStrategy specialPower;
 
     public Fdibamon(String name, int hitPoints, int attackPower) {
         this.setName(name);
@@ -29,7 +35,7 @@ public class Fdibamon {
         return attackPower;
     }
 
-    public String getSpecialPower() {
+    public SpecialPowerStrategy getSpecialPower() {
         return specialPower;
     }
 
@@ -55,14 +61,16 @@ public class Fdibamon {
     }
 
     public void setSpecialPower(String specialPower) {
-        if(specialPower.equals("JEDIHEALING") || specialPower.equals("ATTACKPOWER")) {
-            this.specialPower = specialPower;
+        if(specialPower.equals("JEDIHEALING")) {
+            this.specialPower = new Jedihealing();
+        }else if(specialPower.equals("ATTACKPOWER")){
+            this.specialPower = new Attackpower();
         }
     }
 
     @Override
     public String toString() {
-        return "Fdibamon{" +
+        return "com.fdiba.fibamon.Fdibamon{" +
                 "name='" + name + '\'' +
                 ", hitPoints=" + hitPoints +
                 ", attackPower=" + attackPower +

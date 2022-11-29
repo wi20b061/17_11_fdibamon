@@ -1,4 +1,6 @@
+package com.fdiba.fibamon;
 import java.util.List;
+
 
 public class FdibamonFight {
     static Fdibamon firstFdibamon;
@@ -65,6 +67,10 @@ public class FdibamonFight {
     }
 
     private void fightRoundWithSpecialPowers() {
+        /*CHANGES:
+        - Put attack powers in seperated classes with Strategy-Interface
+        - And special Class just for changes in Fdibamon HP so that the Stragety-Classes stay clean
+
         Fdibamon attacker = firstFdibamon;
         Fdibamon defender = secondFdibamon;
 
@@ -80,11 +86,11 @@ public class FdibamonFight {
                     Logger.log("ERROR! NONEXISTENT SPECIAL POWER.");
                     break;
             }
-
             attacker = secondFdibamon;
             defender = firstFdibamon;
-        }
-
+        }*/
+        firstFdibamon.getSpecialPower().useSpecialPower(firstFdibamon, secondFdibamon);
+        secondFdibamon.getSpecialPower().useSpecialPower(secondFdibamon, firstFdibamon);
     }
 
     //both fdibamons attack the other one
