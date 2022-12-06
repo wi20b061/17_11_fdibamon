@@ -1,5 +1,7 @@
 package com.fdiba.fibamon;
 
+import com.fdiba.fibamon.attackpowers.Hero;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,7 +29,7 @@ public class UserIO {
 
                 if (selectedFdibamons == 0) {
                     fdibamonSelection.add(getFdibamonFromListAndPrintIt(fdibamons, input));
-                    fdibamons.remove(input - 1);
+                    //fdibamons.remove(input - 1);
                     ++selectedFdibamons;
                     continue;
                 }
@@ -46,8 +48,9 @@ public class UserIO {
 
     private Fdibamon getFdibamonFromListAndPrintIt(List<Fdibamon> fdibamons, int input) {
         Fdibamon fdibamon = fdibamons.get(input - 1);
-        System.out.printf("%n%s selected!%n%n", fdibamon.getName());
-        return fdibamon;
+        Fdibamon fdibamonCopy = fdibamon.clone();
+        System.out.printf("%n%s selected!%n%n", fdibamonCopy.getName());
+        return fdibamonCopy;
     }
 
     private void printCurrentFdibamonList(List<Fdibamon> fdibamons) {

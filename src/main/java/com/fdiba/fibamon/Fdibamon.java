@@ -1,9 +1,10 @@
 package com.fdiba.fibamon;
 
 import com.fdiba.fibamon.attackpowers.Attackpower;
+import com.fdiba.fibamon.attackpowers.Hero;
 import com.fdiba.fibamon.attackpowers.Jedihealing;
 
-public class Fdibamon {
+public class Fdibamon extends Hero{
     private String name;
     private int hitPoints;
     private int attackPower;
@@ -75,5 +76,15 @@ public class Fdibamon {
                 ", hitPoints=" + hitPoints +
                 ", attackPower=" + attackPower +
                 '}';
+    }
+
+    @Override
+    public Fdibamon clone() {
+        Fdibamon clone = new Fdibamon(
+                this.getName(),
+                this.getHitPoints(),
+                this.getAttackPower(),
+                this.getSpecialPower().toString());
+        return clone;
     }
 }

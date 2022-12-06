@@ -69,26 +69,7 @@ public class FdibamonFight {
     private void fightRoundWithSpecialPowers() {
         /*CHANGES:
         - Put attack powers in seperated classes with Strategy-Interface
-        - And special Class just for changes in Fdibamon HP so that the Stragety-Classes stay clean
-
-        Fdibamon attacker = firstFdibamon;
-        Fdibamon defender = secondFdibamon;
-
-        for (int i = 0; i < 2; i++) {
-            switch (attacker.getSpecialPower()) {
-                case "JEDIHEALING":
-                    attacker.setHitPoints(attacker.getHitPoints() + (3 * attacker.getAttackPower()));
-                    break;
-                case "ATTACKPOWER":
-                    defender.setHitPoints(defender.getHitPoints() - (3 * attacker.getAttackPower()));
-                    break;
-                default:
-                    Logger.log("ERROR! NONEXISTENT SPECIAL POWER.");
-                    break;
-            }
-            attacker = secondFdibamon;
-            defender = firstFdibamon;
-        }*/
+        - And special Class just for changes in Fdibamon HP so that the Stragety-Classes stay clean*/
         firstFdibamon.getSpecialPower().useSpecialPower(firstFdibamon, secondFdibamon);
         secondFdibamon.getSpecialPower().useSpecialPower(secondFdibamon, firstFdibamon);
     }
